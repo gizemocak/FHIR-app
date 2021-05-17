@@ -35,3 +35,11 @@ code {
 .card {
   margin-bottom: 1em;
 }
+
+.question-container {
+  margin-bottom: 1em;
+}
+
+.question-text {
+  margin-right: 1em;
+}
