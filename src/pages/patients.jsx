@@ -4,7 +4,7 @@ import { getPatients } from '../services';
 import Table from '../components/Table';
 import { Input, Button } from '@material-ui/core';
 
-class Main extends Component {
+class Patients extends Component {
   state = {
     patients: [],
     name: '',
@@ -96,4 +96,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Patients;
