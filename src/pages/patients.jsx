@@ -69,6 +69,9 @@ class Patients extends Component {
   render() {
     const { name, dob, patients, time } = this.state;
 
+    const regex = new RegExp('^[a-zA-Z]+$');
+    const notAlphabetical = name && !regex.test(name);
+
     return (
       <div className="main-container">
         <h1 className="title">Results as of {time}</h1>
@@ -78,6 +81,7 @@ class Patients extends Component {
             placeholder="Name"
             value={name}
             className="input"
+            error={notAlphabetical}
             onChange={({ target: { value } }) => this.setState({ name: value })}
           />
           <Input
@@ -86,7 +90,11 @@ class Patients extends Component {
             className="input"
             onChange={({ target: { value } }) => this.setState({ dob: value })}
           />
-          <Button type="submit" onClick={() => this.onSubmit()}>
+          <Button
+            type="submit"
+            onClick={() => this.onSubmit()}
+            disabled={(!name && !dob) || notAlphabetical}
+          >
             Search
           </Button>
         </div>
